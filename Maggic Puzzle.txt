@@ -47,8 +47,7 @@ All_Shapes = (CIRCLE, SQUARE, DIAMOND, LINES, OVAL)
 assert len(All_Colors)* len(All_Shapes) * 2 >= Border_Width * Border_Height, "Board is too big for the number of shapes/colors defined."
 
 
-
-#PythonGeeks - Creating main function
+ #Creating main function
 
 def main():
     global Frame_Speed_Clock, DIS_PlaySurf
@@ -122,7 +121,7 @@ def main():
 
 
 
-#PythonGeeks- Creating Revealed box function
+#Creating Revealed box function
 
 def GenerateData_RevealedBoxes(val):
     Boxes_revealed = []
@@ -132,7 +131,7 @@ def GenerateData_RevealedBoxes(val):
 
 
 
-#PythonGeeks- Creating a board
+#Creating a board
 
 def Randomized_Board():
     icon = []
@@ -156,7 +155,7 @@ def Randomized_Board():
     return board
 
 
-#PythonGeeks- Splitting a list into lists
+#Splitting a list into lists
 
 def Split_Groups(group_Size, List):
     
@@ -166,7 +165,7 @@ def Split_Groups(group_Size, List):
     return result
 
 
-#PythonGeeks- Create coordinate function
+#Create coordinate function
 def leftTop_Coord(x_box, y_box):
    
     left = x_box * (Box_Size + Gap_Size) + X_margin
@@ -174,7 +173,7 @@ def leftTop_Coord(x_box, y_box):
     return (left, top)
 
 
-#PythonGeeks- Converting to pixel coordinates to box coordinates
+#Converting to pixel coordinates to box coordinates
 
 def Box_Pixel(x, y):
     for x_box in range(Border_Width):
@@ -186,7 +185,7 @@ def Box_Pixel(x, y):
     return (None, None)
 
 
-#PythonGeeks- Draw icon and synthetic sugar
+#Draw icon and synthetic sugar
 
 def Draw_Icon(shape, color, x_box, y_box):
     quarter = int(Box_Size * 0.25) # syntactic sugar
@@ -213,7 +212,7 @@ def get_Shape_Color(board, x_box, y_box):
 
 
 
-#PythonGeeks- Drawing box cover
+#Drawing box cover
 
 def Box_Cover(board, boxes, coverage):
 
@@ -228,7 +227,7 @@ def Box_Cover(board, boxes, coverage):
     Frame_Speed_Clock.tick(Frame_Speed)
 
 
-#PythonGeeks- Revealing and covering animation
+#Revealing and covering animation
 def Reveal_Boxes_Animation(board, boxesToReveal):
     
     for coverage in range(Box_Size, (-Speed_Reveal) - 1, -Speed_Reveal):
@@ -240,7 +239,7 @@ def Cover_Boxes_Animation(board, boxesToCover):
         Box_Cover(board, boxesToCover, coverage)
 
 
-#PythonGeeks- Drawing entire board and Highlight
+#Drawing entire board and Highlight
 def Draw_Board(board, revealed):
     
     for x_box in range(Border_Width):
@@ -257,7 +256,7 @@ def Draw_HighlightBox(x_box, y_box):
     pygame.draw.rect(DIS_PlaySurf, HighLight_Color, (left - 5, top - 5, Box_Size + 10, Box_Size + 10), 4)
 
 
-#PythonGeeks- Start the game animation
+#Start the game animation
 def Start_Game(board):
     
     covered_Boxes = GenerateData_RevealedBoxes(False)
@@ -274,7 +273,7 @@ def Start_Game(board):
         Cover_Boxes_Animation(board, boxGroup)
 
 
-#PythonGeeks- Creating function for game won
+#Creating function for game won
 
 def Game_Won (board):
     
